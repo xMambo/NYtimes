@@ -10,7 +10,7 @@
     <!-- Added a link to Bootstrap & CSS-->
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 </head>
 
@@ -23,20 +23,20 @@
     <form>
         <div class="form-group">
             <label for="form-control-lg">Search Terms:</label>
-            <input class="form-control form-control-lg" type="text">
+            <input class="form-control form-control-lg" id="userInput" type="text">
         </input>
         </div>
         <div class="form-group">
                 <label for="exampleFormControlSelect2">Number of Records to Retrieve</label>
                 <select class="form-control" id="exampleFormControlSelect2">
-                  <option>1</option>
-                  <option>5</option>
-                  <option>10</option>
+                  <option value="1">1</option>
+                  <option value="5">5</option>
+                  <option value="10">10</option>
                 </select>
                 
                 <br>
 
-                <button type="button" class="btn btn-secondary btn-lg">Search</button>
+                <button type="button" class="btn btn-secondary btn-lg" id="search">Search</button>
                 <button type="clear" class="btn btn-secondary btn-lg">Clear Results</button>
 
               </div>
@@ -54,13 +54,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <script>
-    $("slect").on(" click"), function() {}
-        
+    $("#search").on("click", function() {
+        console.log("Hi");
     var obama = "obama";
 
     var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + obama + "&api-key=vAVCl16BV7grF0jaq3bcTLFiXSrhuVQz";
 
-
+    var limit = 5; // This should reference the user selection for limit
 
 // var userInput = $("#userInput").val();
 
@@ -76,16 +76,17 @@
 
         console.log(results);
 
-        for (var i = 0; i < results.length; i++) {
+        for (var i = 0; i < limit; i++) {
             
             var title = results[i].headline.main;
             
             var author = results[i].byline.original;
             
             var articleURL = results[i].web_url;
-
+            console.log(title);
         }
         });
+    })
     </script>
 </body>
 
