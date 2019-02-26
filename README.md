@@ -6,7 +6,6 @@ New York Times Article Scraper
 # New York Times Article Search - Phase 01
 
 ## Front-End Team
-![nyt-search](Images/nyt.png)
 
 * Create the layout for the design above. Feel free to use Bootstrap or to do something more customized of your own.
 
