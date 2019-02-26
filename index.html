@@ -56,8 +56,37 @@
 
     <script>
     $("slect").on(" click"), function() {}
+        
+    var obama = "obama";
 
-    
+    var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + obama + "&api-key=vAVCl16BV7grF0jaq3bcTLFiXSrhuVQz";
+
+
+
+// var userInput = $("#userInput").val();
+
+        $.ajax({
+        url: queryURL,  
+        method: "GET"
+        }).then(function(response){
+        console.log(queryURL);
+        console.log(response);
+
+
+        var results = response.response.docs;
+
+        console.log(results);
+
+        for (var i = 0; i < results.length; i++) {
+            
+            var title = results[i].headline.main;
+            
+            var author = results[i].byline.original;
+            
+            var articleURL = results[i].web_url;
+
+        }
+        });
     </script>
 </body>
 
